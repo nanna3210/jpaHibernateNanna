@@ -25,7 +25,7 @@ public class JpahibernateApplication implements CommandLineRunner {
 		
 		Course course = courseRepository.findById ( 10001 );
 		logger.info ( "course 10001 ->{}",course );
-	
-	
+//		logger.info ( "course 10001 ->{}",courseRepository.deleteByid ( 10002 ) );
+//		courseRepository.deleteByid ( 10002 );
 	}
 }

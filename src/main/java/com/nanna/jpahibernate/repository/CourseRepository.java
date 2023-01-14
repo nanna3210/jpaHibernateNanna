@@ -3,10 +3,12 @@ package com.nanna.jpahibernate.repository;
 import com.nanna.jpahibernate.entity.Course;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Id;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Transactional
 public class CourseRepository {
     
     @Autowired
@@ -21,7 +23,11 @@ public class CourseRepository {
 //
 //    }
     
-    public void deleteByid() {
+    public void deleteByid(int id ) {
+    
+    
+        Course course = findById ( id );
+        em.remove ( course );
     
     }
     
