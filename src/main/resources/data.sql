@@ -1,0 +1,1 @@
+insert into course( id, name ) VALUES(10001, 'jPA LEArning ');
