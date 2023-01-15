@@ -1,18 +1,29 @@
 package com.nanna.jpahibernate.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDate;
 
 @Entity
+
 public class Course {
 
 
     @Id
     @GeneratedValue
     private Integer id;
+    
+    @Column (name = "fullName" , nullable = false)
     private String name;
+    
+    
+    @UpdateTimestamp
+    private LocalDate updatedTime;
+    @CreationTimestamp
+    private LocalDate createdTime;
     
     
     protected Course( ) {
