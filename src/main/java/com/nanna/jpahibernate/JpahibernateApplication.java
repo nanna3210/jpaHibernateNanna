@@ -23,9 +23,10 @@ public class JpahibernateApplication implements CommandLineRunner {
 	@Override
 	public void run ( String... args ) throws Exception {
 		
-		Course course = courseRepository.findById ( 10001 );
+		Course course = courseRepository.findById (  10001 );
 		logger.info ( "course 10001 ->{}",course );
 //		logger.info ( "course 10001 ->{}",courseRepository.deleteByid ( 10002 ) );
 //		courseRepository.deleteByid ( 10002 );
+		logger.info ( "course 10001 ->{}",courseRepository.save ( new Course ( "Microservices" ) ) );
 	}
 }

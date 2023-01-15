@@ -11,7 +11,7 @@ public class Course {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Integer id;
     private String name;
     
     
@@ -31,7 +31,7 @@ public class Course {
         this.name = name;
     }
     
-    public long getId ( ) {
+    public Integer getId ( ) {
         return id;
     }
     
