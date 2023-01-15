@@ -1,6 +1,7 @@
 package com.nanna.jpahibernate.repository;
 
 import com.nanna.jpahibernate.entity.Course;
+import com.nanna.jpahibernate.entity.Review;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Id;
 import jakarta.transaction.Transactional;
@@ -66,8 +67,33 @@ public class CourseRepository {
     
         logger.info ( "play with Entity Manager " );
     }
+
+    public void addReview() {
     
+        Course course = findById ( 1 );
+        logger.info ( "reviews  " , course.getReviews () );
     
+        Review review = new Review ( "5" , "great content" );
+        Review review2 = new Review ( "4" , "need more explanation with real world Example" );
+        course.addReview ( review );
+        review.setCourse ( course );
+        course.addReview ( review2 );
+        review2.setCourse ( course );
+        em.persist ( review2 );
+        em.persist ( review );
+    
+    }
+    public void addReviews(Integer courseId, List<Review> reviews) {
+        Course course = findById ( courseId );
+        
+        for ( Review review : reviews ) {
+    
+                course.addReview ( review );
+                review.setCourse ( course );
+                em.persist ( review );
+            
+        }
+    }
     
 }
 

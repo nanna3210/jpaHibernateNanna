@@ -1,9 +1,6 @@
 package com.nanna.jpahibernate.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class PassPort {
@@ -16,12 +13,27 @@ public class PassPort {
     @Column(nullable = false)
     private String  number ;
     
+    @OneToOne ( fetch = FetchType.LAZY, mappedBy = "passPort")
+    private Student student;
+    
     
     PassPort() {
     
     
     }
     
+    
+    public Student getStudent ( ) {
+        return student;
+    }
+    
+    public void setStudent ( Student student ) {
+        this.student = student;
+    }
+    
+    public PassPort ( String number ) {
+        this.number = number;
+    }
     
     public Long getId ( ) {
         return id;

@@ -6,6 +6,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 
@@ -24,6 +26,19 @@ public class Course {
     private LocalDate updatedTime;
     @CreationTimestamp
     private LocalDate createdTime;
+    
+    public List < Review > getReviews ( ) {
+        return reviews;
+    }
+    
+    public void addReview (Review  review ) {
+        this.reviews.add ( review );
+    }
+    public void removeReview (Review  review ) {
+        this.reviews.remove ( review );
+    }
+    @OneToMany(mappedBy = "course")
+    private List<Review> reviews = new ArrayList <> (  );
     
     
     protected Course( ) {
