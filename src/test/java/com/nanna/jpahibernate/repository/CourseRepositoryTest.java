@@ -2,6 +2,7 @@ package com.nanna.jpahibernate.repository;
 
 import com.nanna.jpahibernate.JpahibernateApplication;
 import com.nanna.jpahibernate.entity.Course;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,4 +47,16 @@ class CourseRepositoryTest {
     }
 
 
+    @Test
+    @DirtiesContext
+    @Transactional
+    public void geteviews()
+    {
+        Course course = courseRepository.findById ( 2 );
+        logger.info ( "get the reviews ", course.getReviews () );
+    
+    
+    }
+    
+    
 }

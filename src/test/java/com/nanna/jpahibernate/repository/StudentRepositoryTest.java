@@ -33,6 +33,19 @@ class StudentRepositoryTest {
 
 
     }
+    @Test
+    @Transactional
+    public void retrievestudentAndCourse() {
+    
+        Student student = em.find ( Student.class , 20001 );
+        
+        
+        logger.info ( "student by id {} -> ", student );
+        logger.info ( "courses  by student  by  {} -> ",student.getCourses () );
+        
+        
+        
+    }
     
     
     

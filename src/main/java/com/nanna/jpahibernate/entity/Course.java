@@ -20,8 +20,9 @@ public class Course {
     
     @Column (name = "fullName" , nullable = false)
     private String name;
-    
-    
+    @ManyToMany(mappedBy = "courses")
+   
+    private List < Student > students = new ArrayList <> ();
     @UpdateTimestamp
     private LocalDate updatedTime;
     @CreationTimestamp
@@ -43,6 +44,14 @@ public class Course {
     
     protected Course( ) {
     
+    }
+    
+    public List < Student > getStudents ( ) {
+        return students;
+    }
+    
+    public void setStudents ( Student  student ) {
+        this.students.add ( student );
     }
     
     public Course ( String name ) {

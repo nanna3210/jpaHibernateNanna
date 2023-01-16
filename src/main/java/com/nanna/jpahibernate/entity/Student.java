@@ -3,6 +3,9 @@ package com.nanna.jpahibernate.entity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Student {
 
@@ -16,6 +19,12 @@ public class Student {
     
     @OneToOne(fetch = FetchType.LAZY )
     private PassPort passPort;
+    
+    @ManyToMany
+    @JoinTable(name = "student_course" ,
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List < Course > courses =new ArrayList <> ();
     
     public Integer getId ( ) {
         return id;
@@ -36,9 +45,19 @@ public class Student {
     public void setName ( String name ) {
         this.name = name;
     }
+    
+    public List < Course > getCourses ( ) {
+        return courses;
+    }
+    
+    public void addCourse ( Course  course ) {
+        this.courses.add ( course );
+    }
+    
     Student() {
     
     }
+    
     
     public Student ( String name ) {
         this.name = name;
