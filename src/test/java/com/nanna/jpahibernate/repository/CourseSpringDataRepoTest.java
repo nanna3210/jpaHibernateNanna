@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
@@ -65,6 +68,19 @@ class CourseSpringDataRepoTest {
 //        System.out.println (courseSpringDataRepo.findAll ());
         System.out.println (allcourseesByparam);
    
+    }
+    
+    @Test
+    public void  pagination(){
+    
+        PageRequest pageRequest = PageRequest.of ( 0 , 4 );
+        Page < Course > firstPage     = courseSpringDataRepo.findAll ( pageRequest );
+        System.out.println ("______________________");
+        System.out.println (firstPage.getContent ());
+        System.out.println ("________________________ 2nd page ");
+        Pageable secondPage = firstPage.nextPageable ();
+        Page < Course > secondPageData = courseSpringDataRepo.findAll ( secondPage );
+        System.out.println (secondPageData.getContent ());
     }
     
 }
