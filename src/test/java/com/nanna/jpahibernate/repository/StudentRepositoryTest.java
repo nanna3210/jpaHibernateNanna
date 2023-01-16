@@ -34,7 +34,7 @@ class StudentRepositoryTest {
 
     }
     @Test
-    @Transactional
+    @org.springframework.transaction.annotation.Transactional
     public void retrievestudentAndCourse() {
     
         Student student = em.find ( Student.class , 20001 );
