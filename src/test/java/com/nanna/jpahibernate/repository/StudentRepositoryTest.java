@@ -1,6 +1,7 @@
 package com.nanna.jpahibernate.repository;
 
 import com.nanna.jpahibernate.JpahibernateApplication;
+import com.nanna.jpahibernate.entity.Address;
 import com.nanna.jpahibernate.entity.PassPort;
 import com.nanna.jpahibernate.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -46,8 +47,13 @@ class StudentRepositoryTest {
         
         
     }
+    @Test
+    public void  settingStudentAddress() {
     
-    
+        Student nanna = em.find ( Student.class,20001 );
+        nanna.setAddress ( new Address ("middle", "sector-2", "mukhiguda") );
+//        em.flush ();
+    }
     
     
 }

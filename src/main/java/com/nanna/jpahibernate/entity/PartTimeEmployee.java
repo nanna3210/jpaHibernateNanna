@@ -10,7 +10,7 @@ public class PartTimeEmployee extends  Employee{
     
     private BigDecimal hourlyWage;
     
-    protected PartTimeEmployee() {
+    public  PartTimeEmployee() {
     
     }
     

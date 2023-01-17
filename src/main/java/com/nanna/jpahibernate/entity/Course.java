@@ -3,14 +3,18 @@ package com.nanna.jpahibernate.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
+@Cacheable
+@SQLDelete ( sql = "update course set is_deleted =true where id =?")
+@Where ( clause = "is_deleted = false")
 public class Course {
 
 
@@ -27,6 +31,7 @@ public class Course {
     private LocalDate updatedTime;
     @CreationTimestamp
     private LocalDate createdTime;
+    private boolean isDeleted;
     
     public List < Review > getReviews ( ) {
         return reviews;
@@ -42,7 +47,7 @@ public class Course {
     private List<Review> reviews = new ArrayList <> (  );
     
     
-    protected Course( ) {
+    public  Course( ) {
     
     }
     

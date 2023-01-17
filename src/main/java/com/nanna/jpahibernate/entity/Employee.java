@@ -17,7 +17,7 @@ public class Employee {
     
     
     
-    protected  Employee() {
+    public   Employee() {
     
     }
     

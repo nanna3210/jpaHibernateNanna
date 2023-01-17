@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -81,6 +82,14 @@ class CourseSpringDataRepoTest {
         Pageable secondPage = firstPage.nextPageable ();
         Page < Course > secondPageData = courseSpringDataRepo.findAll ( secondPage );
         System.out.println (secondPageData.getContent ());
+    }
+    
+    @Test
+    public void deleteByid() {
+    
+//        courseSpringDataRepo.deleteById ( 252 );
+    
+    
     }
     
 }

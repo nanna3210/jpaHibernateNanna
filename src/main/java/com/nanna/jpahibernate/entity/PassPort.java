@@ -17,7 +17,7 @@ public class PassPort {
     private Student student;
     
     
-    PassPort() {
+    public PassPort() {
     
     
     }

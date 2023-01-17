@@ -10,7 +10,7 @@ public class FullTimeEmployee extends  Employee{
     
     
     private BigDecimal Salary;
-    protected  FullTimeEmployee() {
+    public   FullTimeEmployee() {
     
     }
     

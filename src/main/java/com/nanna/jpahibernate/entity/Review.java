@@ -19,6 +19,10 @@ public class Review {
     @ManyToOne
     private Course course;
     
+    public Review() {
+    
+    }
+    
     public Course getCourse ( ) {
         return course;
     }
